@@ -1,0 +1,17 @@
+version: "3.0"
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    restart: always
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: avito
+      POSTGRES_DB: avito_test
+      POSTGRES_PASSWORD: avito12345
